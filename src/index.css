@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* macOS window styles */
+.window-controls {
+  -webkit-app-region: drag;
+}
+
+.window-controls button {
+  -webkit-app-region: no-drag;
+}
+
+/* macOS button styles */
+button,
+select,
+input {
+  @apply outline-none;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  @apply ring-2 ring-blue-500;
+}
+
+/* macOS select styles */
+select {
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24' stroke='%2386868b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+/* macOS table styles */
+table {
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+/* macOS font styles */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* macOS scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a1a1a6;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #86868b;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* macOS animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24' stroke='%23a1a1a6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #424242;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+/* macOS glass effect */
+.glass-effect {
+  @apply bg-white/80 dark:bg-[#1e1e1e]/80;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* macOS input styles */
+input::placeholder {
+  color: #86868b;
+}
+
+.dark input::placeholder {
+  color: #a1a1a6;
+}
+
+/* macOS selection styles */
+::selection {
+  background-color: #0063e1;
+  color: white;
+}
+
+/* macOS focus ring */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#1e1e1e];
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
