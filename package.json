@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/shishir-dey/Stella#readme",
   "dependencies": {
-    "electron-store": "^8.1.0",
+    "electron-store": "^10.0.1",
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
