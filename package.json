@@ -1,0 +1,24 @@
+{
+  "name": "stella",
+  "version": "1.0.0",
+  "description": "A versatile and user-friendly tool for interacting with the CAN bus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shishir-dey/Stella.git"
+  },
+  "keywords": [
+    "automotive",
+    "can",
+    "gui"
+  ],
+  "author": "Shishir Dey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shishir-dey/Stella/issues"
+  },
+  "homepage": "https://github.com/shishir-dey/Stella#readme"
+}
