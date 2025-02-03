@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const LiveViewer = () => {
+  const [selectedProtocol, setSelectedProtocol] = useState('obd2');
+
+  const protocols = [
+    { id: 'obd2', name: 'OBD2' },
+    { id: 'uds', name: 'UDS' },
+    { id: 'isotp', name: 'ISO-TP' },
+    { id: 'j1939', name: 'J1939' },
+  ];
+
   return (
     <div className="glass-effect h-full rounded-xl border border-[#e5e5e5] shadow-xs dark:border-[#323232]">
+      {/* Protocol Selector */}
+      <div className="border-b border-[#e5e5e5] p-4 dark:border-[#323232]">
+        <div className="flex items-center space-x-4">
+          <label className="text-sm font-medium text-[#1d1d1f] dark:text-white">Protocol:</label>
+          <div className="flex space-x-2">
+            {protocols.map(protocol => (
+              <button
+                key={protocol.id}
+                onClick={() => setSelectedProtocol(protocol.id)}
+                className={`rounded-lg px-4 py-2 text-sm transition-colors ${
+                  selectedProtocol === protocol.id
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-[#ffffff] text-[#1d1d1f] hover:bg-[#f5f5f7] dark:bg-[#252525] dark:text-white dark:hover:bg-[#323232]'
+                }`}
+              >
+                {protocol.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="overflow-hidden">
         <table className="w-full">
           <thead>
