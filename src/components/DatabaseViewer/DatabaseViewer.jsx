@@ -2,7 +2,7 @@ import React from 'react';
 
 const DatabaseViewer = () => {
   return (
-    <div className="h-full rounded-xl border border-[#e5e5e5] bg-white/80 shadow-sm backdrop-blur-xl dark:border-[#323232] dark:bg-[#1e1e1e]/80">
+    <div className="h-full rounded-xl border border-[#e5e5e5] bg-white/80 shadow-xs backdrop-blur-xl dark:border-[#323232] dark:bg-[#1e1e1e]/80">
       <div className="p-6">
         <div className="mb-6">
           <div className="mb-2 flex items-center justify-between">
@@ -26,19 +26,19 @@ const DatabaseViewer = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-[#e5e5e5] bg-[#f5f5f7] dark:border-[#323232] dark:bg-[#252525]">
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+                <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                   Message ID
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+                <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                   Name
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+                <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                   Length
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+                <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                   Cycle Time
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+                <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                   Signals
                 </th>
               </tr>

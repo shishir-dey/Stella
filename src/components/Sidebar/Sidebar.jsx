@@ -21,7 +21,7 @@ const Sidebar = ({ selectedTab, onTabChange }) => {
               onClick={() => onTabChange(item.id)}
               className={`mb-1 flex w-full items-center rounded-lg px-3 py-2 transition-all duration-200 ${
                 selectedTab === item.id
-                  ? 'bg-white shadow-sm dark:bg-[#323232]'
+                  ? 'bg-white shadow-xs dark:bg-[#323232]'
                   : 'text-[#86868b] hover:bg-white/50 dark:text-[#a1a1a6] dark:hover:bg-[#323232]/50'
               }`}
             >

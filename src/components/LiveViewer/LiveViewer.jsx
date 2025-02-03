@@ -2,27 +2,27 @@ import React from 'react';
 
 const LiveViewer = () => {
   return (
-    <div className="glass-effect h-full rounded-xl border border-[#e5e5e5] shadow-sm dark:border-[#323232]">
+    <div className="glass-effect h-full rounded-xl border border-[#e5e5e5] shadow-xs dark:border-[#323232]">
       <div className="overflow-hidden">
         <table className="w-full">
           <thead>
             <tr className="border-b border-[#e5e5e5] bg-[#f5f5f7] dark:border-[#323232] dark:bg-[#252525]">
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 Timestamp
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 ID
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 Name
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 DLC
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 Data
               </th>
-              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-[#86868b] dark:text-[#a1a1a6]">
+              <th className="px-4 py-3 text-left text-xs font-medium tracking-wider text-[#86868b] uppercase dark:text-[#a1a1a6]">
                 Count
               </th>
             </tr>
