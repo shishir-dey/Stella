@@ -8,11 +8,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron:dev": "concurrently \"vite\" \"electron .\"",
-    "electron:build": "vite build && electron-builder",
+    "electron:dev": "concurrently \"ELECTRON=true vite\" \"electron .\"",
+    "electron:build": "rimraf dist dist_electron && ELECTRON=true npm run wasm:build && ELECTRON=true vite build && electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "wasm:build": "cd rust && wasm-pack build dbc-parser --target web && wasm-pack build protocol-decoder --target web"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md}": [
@@ -28,7 +29,10 @@
     "can",
     "gui"
   ],
-  "author": "Shishir Dey",
+  "author": {
+    "name": "Shishir Dey",
+    "email": "r0qck3ntp@mozmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/shishir-dey/Stella/issues"
@@ -38,7 +42,9 @@
     "electron-store": "^10.0.1",
     "lucide-react": "^0.475.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@stella/dbc-parser": "file:rust/dbc-parser/pkg",
+    "@stella/protocol-decoder": "file:rust/protocol-decoder/pkg"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
@@ -51,7 +57,99 @@
     "postcss": "^8.4.31",
     "prettier": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.0.4",
-    "vite": "^6.1.0"
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^4.0.3",
+    "vite": "^6.0.11",
+    "vite-plugin-wasm": "^3.3.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.7.0"
+  },
+  "build": {
+    "appId": "com.stella.app",
+    "productName": "Stella",
+    "directories": {
+      "output": "dist_electron",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/electron/**/*.{js,cjs}",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "extraResources": [
+      {
+        "from": "rust/dbc-parser/pkg",
+        "to": "app/dbc-parser"
+      },
+      {
+        "from": "rust/protocol-decoder/pkg",
+        "to": "app/protocol-decoder"
+      },
+      {
+        "from": "dist",
+        "to": "app/dist",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "asar": {
+      "smartUnpack": true
+    },
+    "asarUnpack": [
+      "app/dist/**/*",
+      "app/dbc-parser/**/*",
+      "app/protocol-decoder/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "identity": null,
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "category": "Development",
+      "icon": "build/icon.png"
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
   }
 }
